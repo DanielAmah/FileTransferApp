@@ -1,0 +1,83 @@
+// Place all the styles related to the FileUploads controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url(/assets/fonts/museosans-500-webfont.ttf) format("truetype");
+}
+
+* {
+  font-family: 'Museo Sans' !important;
+  border-radius: 0 !important;
+}
+
+body {
+  background: url('bg.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.cloud-logo {
+  color: #267FBA;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  position: relative;
+  left: 35%;
+  top: 20%;
+}
+
+.upload-container {
+  height: 20em;
+  width: 80%;
+  position: relative;
+  // left: 50%;
+  top: 10.8em;
+  background-color: #fff;
+  z-index: 5;
+  padding: 2em 2em;
+}
+
+.caption-container {
+  // width: 80%;
+  position: relative;
+  top: 10.8em;
+  z-index: 5;
+}
+
+.upload-button::after {
+background-color: #329AD2 !important;
+color: #fff !important;
+border: transparent !important;
+}
+
+.caption-1 {
+  font-size: 5em !important;
+  color: #329AD2;
+  font-weight: 700 !important;
+}
+.caption-2 {
+  font-size: 4em !important;
+  color: #329AD2;
+  font-weight: 700 !important;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+  z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
