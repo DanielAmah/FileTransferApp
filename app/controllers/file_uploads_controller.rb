@@ -1,5 +1,6 @@
 class FileUploadsController < ApplicationController
   def index
+    @file = FileUpload.new
     @files = FileUpload.all
   end
 
@@ -12,7 +13,8 @@ class FileUploadsController < ApplicationController
     if @file.save
       redirect_to file_uploads_path, notice: "the file #{@file.name} has been uploaded"
     else
-      render "new"
+      @files = FileUpload.all
+      render "index"
     end
   end
 

@@ -4,7 +4,26 @@
   </div>
 <% end %>
 <br />
-<%= link_to "New File", new_file_upload_path, class: "btn btn-primary" %>
+<% if !@file.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @file.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_for @file, html: { multipart: true } do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment, multiple: true, name: "file_uploads[attachment][]" %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 <br />
 <br />
 <table class="table table-bordered table-striped">
@@ -12,7 +31,8 @@
     <tr>
       <th>Name</th>
       <th>Download Link</th>
-      <th>&nbsp;</th>
+      <th>Thumbnail</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
