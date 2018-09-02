@@ -5,13 +5,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@font-face {
-  font-family: "Museo Sans";
-  src: url('/assets/fonts/museosans-500-webfont.ttf') format("truetype");
-}
+// @font-face {
+//   font-family: "Museo Sans";
+//   src: url('/assets/fonts/museosans-500-webfont.ttf') format("truetype");
+// }
 
 * {
-  font-family: 'Museo Sans' !important;
+  font-family: 'Ubuntu' !important;
   border-radius: 0 !important;
 }
 

@@ -16,10 +16,8 @@
 
 <div class="well">
   <%= form_for @file, html: { multipart: true } do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
     <%= f.label :attachment %>
-    <%= f.file_field :attachment, multiple: true, name: "file_uploads[attachment][]" %>
+    <%= f.file_field :attachments, multiple: true %>
     <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 </div>
@@ -29,7 +27,6 @@
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Download Link</th>
       <th>Thumbnail</th>
       <th>Action</th>
@@ -37,12 +34,13 @@
   </thead>
   <tbody>
     <% @files.each do |file| %>
-      <tr>
-        <td><%= file.name %></td>
-        <td><%= link_to "Download File", file.attachment_url %></td>
-        <td><%= image_tag(file.attachment_url(:thumb).to_s) %></td>
-        <td><%= button_to "Delete",  file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{file.name}?" %></td>
-      </tr>
+      <% file.attachments.each do |attachment| %>
+        <tr>
+          <td><%= link_to "Download File", attachment.url %></td>
+          <td><%= image_tag(attachment.thumb.url.to_s) %></td>
+          <td><%= button_to "Delete",  file_upload_path(file), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this file?" %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
